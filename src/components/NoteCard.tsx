@@ -1,8 +1,24 @@
-import { Note } from "../types";
+import { useNavigate } from "react-router";
+import { INote } from "../types";
+import { useMediaQuery } from "react-responsive";
 
-const NoteCard = ({ note }: { note: Note }) => {
+const NoteCard = ({
+  note,
+  setSelectedNote,
+}: {
+  note: INote;
+  setSelectedNote: () => void;
+}) => {
+  const navigate = useNavigate();
+  const isLargeScreen = useMediaQuery({ minWidth: 1024 });
+
   return (
-    <div className="p-2 rounded-[6px] hover:bg-neutral-100 dark:hover:bg-neutral-600">
+    <div
+      className="p-2 hover:rounded-[6px] hover:bg-neutral-100 hover:border-t-neutral-100 dark:hover:border-t-[#232530] dark:hover:bg-[#232530] border-b border-b-neutral-200 dark:border-b-neutral-800"
+      onClick={() =>
+        isLargeScreen ? setSelectedNote() : navigate(`/notes/${note.id}`)
+      }
+    >
       <h1 className="text-base font-semibold mb-2">{note.title}</h1>
       <section className="flex flex-wrap gap-1">
         {note.tags.map((tag) => (
