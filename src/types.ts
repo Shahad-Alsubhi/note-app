@@ -1,4 +1,5 @@
-export type Note = {
+export type INote = {
+  id:string;
   title: string;
   tags: string[];
   date: string;
