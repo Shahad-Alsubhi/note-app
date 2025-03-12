@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 body{
   background-color: #fff;
@@ -8,4 +9,25 @@ body{
 .dark{
   background-color: #0E121B;
   color:#fff;
+}
+
+@media (max-width: 1023px) {
+  .desktop-layout {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-layout {
+    display: none;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body{
+  scroll-behavior: smooth;
+  transition: 0.8s ease;
 }
