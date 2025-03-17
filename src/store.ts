@@ -35,8 +35,8 @@ const ActiveBtnSlice = createSlice({
   name: "activeBtn",
   initialState: "all",
   reducers: {
-    SetActiveBtn(state, { payload }) {
-      return payload.btn;
+    SetActiveBtn(_state, { payload }) {
+      return payload.btn
     },
   },
 });
