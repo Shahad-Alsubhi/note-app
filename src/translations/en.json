@@ -1,0 +1,31 @@
+{
+  "all_notes": "All Notes",
+  "archived_notes": "Archived Notes",
+  "search_placeholder": "Search by title, content, or tags...",
+  "no_notes": "You don't have any notes yet. Start a new note to capture your thoughts and ideas.",
+  "tags": "Tags",
+  "no_archived": "No notes have been archived yet.",
+  "create_note": "Create New Note",
+  "new_note": {
+    "title_placeholder": "Enter a title…",
+    "tags_placeholder": "Add tags separated by commas (e.g. Work, Planning)",
+    "content_placeholder": "Start typing your note here…"
+  },
+  "settings": "Settings",
+  "language": "Language",
+  "ar": "Arabic",
+  "en": "English",
+  "theme_options": {
+    "dark": "Dark Mode",
+    "light": "Light Mode",
+    "system": "System"
+  },
+  "theme": "Theme",
+  "search_mismatch": "No notes match your search.",
+  "search": "Search",
+  "search_result": "Showing results for:",
+  "Notes_Tagged": "Notes Tagged:",
+  "date": "Last edited",
+  "delete":"Delete Note",
+  "archive":"Archive Note","restore":"Restore Note"
+}

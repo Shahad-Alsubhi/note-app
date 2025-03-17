@@ -20,24 +20,9 @@ export const handleFilterNotes = (
   return notes.filter((note) => note.archived === !!archived);
 };
 
-export const getTitle = (searchParam: URLSearchParams, pathname: string) => {
-  const search = searchParam.get("search");
-  const tag = searchParam.get("tag");
-  const archived = searchParam.get("archived");
-   
-  if(search==="null") return "Search"
-  if (search) return `Showing results for: ${search}`;
-  if (tag) return `Notes Tagged: ${tag}`;
-  if (archived) return "Archived Notes";
-
-  return pathname.includes("settings") ? "Settings" :pathname.includes("tags")?"Tags": "All Notes";
-};
-
-export const EmptyStateText = (searchParam: URLSearchParams) => {
-  const search = searchParam.get("search");
-  const archived = searchParam.get("archived");
-
-  if (search) return "No notes match your search.";
-  if (archived) return "No notes have been archived yet.";
-  return "You don’t have any notes yet. Start a new note to capture your thoughts and ideas.";
+export const formatDate = (date: Date) => {
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = date.toLocaleString("default", { month: "long" });
+  const year = date.getFullYear();
+  return `${day} ${month} ${year}`;
 };

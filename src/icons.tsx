@@ -144,7 +144,7 @@ export const RightIcon = () => {
     <svg
       width="6"
       height="10"
-      className="ml-auto"
+      className="ms-auto"
       color="currentColor"
       viewBox="0 0 6 10"
       fill="none"
@@ -265,8 +265,8 @@ export const SearchIcon = () => {
 export const LightModeIcon = () => {
   return (
     <svg
-      width="20"
-      height="20"
+      width="24"
+      height="24"
       color="currentColor"
       viewBox="0 0 20 20"
       fill="none"

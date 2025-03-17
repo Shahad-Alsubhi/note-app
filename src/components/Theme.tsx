@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { DarkModeIcon, LightModeIcon, SystemIcon } from "../icons";
 import SettingsOption from "./SettingsOption";
 import BackBtn from "./BackBtn";
+import { useTranslation } from "react-i18next";
 
 const Theme = () => {
   const [theme, seTheme] = useState(
     document.body.classList.contains("dark") ? "dark" : "light"
   );
+  const { t } = useTranslation("global");
 
   useEffect(() => {
     if (theme === "dark") return document.body.classList.add("dark");
@@ -14,30 +16,25 @@ const Theme = () => {
       return document.body.classList.add("dark");
     else document.body.classList.remove("dark");
   }, [theme]);
-
+   
   return (
     <div>
       <BackBtn />
-      <h3 className="font-medium ml-4">Color Theme</h3>
-      <p className="mb-4 font-light ml-4">Choose your color theme:</p>
       <SettingsOption
-        title={"Light Mode"}
-        subTitle={"Pick a clean and classic light theme"}
+        title={t("theme_options.light")}
         Icon={<LightModeIcon />}
         selected={theme === "light"}
         handleClick={() => seTheme("light")}
       />
       <SettingsOption
         selected={theme === "dark"}
-        title={"Dark Mode"}
-        subTitle={"Select a sleek and modern dark theme"}
+        title={t("theme_options.dark")}
         Icon={<DarkModeIcon />}
         handleClick={() => seTheme("dark")}
       />
       <SettingsOption
         selected={theme === "system"}
-        title={"System"}
-        subTitle={"Adapts to your device’s theme"}
+        title={t("theme_options.system")}
         Icon={<SystemIcon />}
         handleClick={() => seTheme("system")}
       />
