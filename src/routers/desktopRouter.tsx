@@ -13,7 +13,7 @@ const desktopRouter = createBrowserRouter([
     element: <DesktopLayout />,
     children: [
       {
-        path: "/",
+        index: true,
         element: <Notes />,
       },
       {

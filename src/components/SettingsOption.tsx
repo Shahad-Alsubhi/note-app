@@ -2,14 +2,12 @@ import { ReactNode } from "react";
 
 const SettingsOption = ({
   title,
-  subTitle,
   Icon,
   handleClick,
   selected,
 }: {
   title: string;
   selected: boolean;
-  subTitle: string;
   Icon: ReactNode;
   handleClick: () => void;
 }) => {
@@ -20,11 +18,8 @@ const SettingsOption = ({
         selected ? "bg-neutral-100 dark:bg-[#232530]" : ""
       }`}
     >
-      <div className="rounded-xl w-10 h-10">{Icon}</div>
-      <div className="grow">
-        <h4 className="font-medium">{title}</h4>
-        <h6 className="mb-4">{subTitle}</h6>
-      </div>
+      <div className="rounded-xl w-10 h-10 flex items-center justify-center">{Icon}</div>
+        <h4 className="font-medium grow">{title}</h4>
       <span
         className={`w-4 h-4 border rounded-full ${
           selected && "border-4 border-blue-500"

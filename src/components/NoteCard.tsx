@@ -14,7 +14,7 @@ const NoteCard = ({
 
   return (
     <div
-      className="p-2 hover:rounded-[6px] hover:bg-neutral-100 hover:border-t-neutral-100 dark:hover:border-t-[#232530] dark:hover:bg-[#232530] border-b border-b-neutral-200 dark:border-b-neutral-800"
+      className="p-2 hover:rounded-[6px] w-full hover:bg-neutral-100 hover:border-t-neutral-100 dark:hover:border-t-[#232530] dark:hover:bg-[#232530] border-b border-b-neutral-200 dark:border-b-neutral-800"
       onClick={() =>
         isLargeScreen ? setSelectedNote() : navigate(`/notes/${note.id}`)
       }
@@ -24,7 +24,7 @@ const NoteCard = ({
         {note.tags.map((tag) => (
           <span
             key={tag}
-            className="py-0.5 px-1.5 rounded-[4px] text-xs dark:group-hover:bg-[#525866] bg-neutral-200 dark:bg-[#2B303B]"
+            className="max-w-full overflow-hidden overflow-ellipsis text-nowrap py-0.5 px-1.5 rounded-[4px] text-xs dark:group-hover:bg-[#525866] bg-neutral-200 dark:bg-[#2B303B]"
           >
             {tag}
           </span>

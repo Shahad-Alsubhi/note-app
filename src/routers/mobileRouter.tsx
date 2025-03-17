@@ -14,7 +14,7 @@ const mobileRouter = createBrowserRouter([
     element: <MobileLayout />,
     children: [
       {
-        path: "/",
+        index: true,
         element: <Notes />,
       },
       {
