@@ -9,7 +9,7 @@ const MobileLayout = () => {
   const navigate = useNavigate();
   const SearchPath = useSearchParams()[0].get("search");
   return (
-    <div className="h-screen">
+    <div className="h-screen relative">
       <header className="bg-neutral-100 dark:bg-[#232530] px-4 md:px-8 py-3 md:py-4">
         <Logo />
       </header>
