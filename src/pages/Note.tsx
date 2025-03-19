@@ -14,7 +14,7 @@ const Note = ({ note: PropNote }: { note?: INote }) => {
 
   if (!note) return null;
   return (
-    <div className="lg:grid grid-cols-[1.5fr_0.5fr] max-lg:flex max-lg:flex-col-reverse  h-full">
+    <div className="lg:grid grid-cols-[1.5fr_0.5fr] max-lg:flex max-lg:flex-col-reverse h-full">
       <div className="px-6 py-5 max-md:px-4 max-md:py-6 h-full overflow-y-scroll border-s-0 max-lg:border-e-0 flex flex-col gap-4 max-md:gap-3 border-[1px] border-y-0 border-neutral-200 dark:border-neutral-800">
         <h1 className="text-2xl font-bold">{note.title}</h1>
         <section id="metadata">

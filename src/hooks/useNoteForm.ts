@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useMemo, useState } from "react";
 import { debounce } from "lodash";
 import { useDispatch } from "react-redux";
 import { actions } from "../store";
@@ -7,7 +7,6 @@ import { formatDate } from "../utils";
 const useNoteForm = () => {
   const dispatch = useDispatch();
   const id = Date.now().toString();
-
   const [formData, setFormData] = useState({
     id: id,
     archived: false,
@@ -16,36 +15,41 @@ const useNoteForm = () => {
     tags: "",
   });
 
-  const debouncedInput = useCallback(
-    debounce(
-      (
-        e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
-      ) => {
-        setFormData((prevData) => {
-          const newData = { ...prevData, [e.target.id]: e.target.value };
+  const debouncedInput = useMemo(
+    () =>
+      debounce(
+        (
+          e:
+            | React.ChangeEvent<HTMLInputElement>
+            | React.ChangeEvent<HTMLTextAreaElement>
+        ) => {
+          setFormData((prevData) => {
+            const newData = { ...prevData, [e.target.id]: e.target.value };
 
-          dispatch(
-            actions.AddNote({
-              note: {
-                ...newData,
-                tags: newData.tags.split(",").map((tag) => tag.trim()), 
-                date: formatDate(new Date()), 
-              },
-            })
-          );
+            dispatch(
+              actions.AddNote({
+                note: {
+                  ...newData,
+                  tags: newData.tags.split(",").map((tag) => tag.trim()),
+                  date: formatDate(new Date()),
+                },
+              })
+            );
 
-          return newData; 
-        });
-      },
-      1000 
-    ),
-    [dispatch]
+            return newData;
+          });
+        },
+        1000
+      ),
+    []
   );
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
   ) => {
-    debouncedInput(e); 
+    debouncedInput(e);
   };
 
   return {
