@@ -1,6 +1,7 @@
 import { TagIcon } from "../icons";
 import useNoteForm from "../hooks/useNoteForm";
 import { useTranslation } from "react-i18next";
+import BackBtn from "../components/BackBtn";
 
 const NewNote = () => {
   const { handleChange } = useNoteForm();
@@ -8,6 +9,7 @@ const NewNote = () => {
 
   return (
     <div className="px-6 py-5 max-md:px-4 max-md:py-6 h-full overflow-scroll flex flex-col gap-4 max-md:gap-3">
+      <BackBtn/>
       <input
         type="text"
         id="title"
@@ -16,7 +18,7 @@ const NewNote = () => {
         placeholder={t("new_note.title_placeholder")}
       />
       <section id="metadata">
-        <div className="grid grid-cols-[115px_1fr] gridRows-2 gap-4 max-md:gap-2">
+        <div className="grid grid-cols-[115px_1fr] max-md:grid-cols-[90px_1fr] gridRows-2 gap-4  max-md:gap-0">
           <label
             htmlFor="tags"
             className="text-neutral-700 dark:text-neutral-300"
@@ -39,9 +41,10 @@ const NewNote = () => {
         id="content"
         rows={500}
         className="text-sm dark:text-neutral-100 text-neutral-800 focus:outline-none h-full resize-none"
-        placeholder={t("new_note.content_placeholder")}
+        // placeholder={t("new_note.content_placeholder")}
       />
     </div>
+  
   );
 };
 

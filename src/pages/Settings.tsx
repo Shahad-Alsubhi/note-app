@@ -9,9 +9,10 @@ const Settings = () => {
   const navigate = useNavigate();
   const isLargeScreen = useMediaQuery({ minWidth: 1024 });
   const { activeBtn, handleNavigation } = useBtnNavigation();
+  
   useEffect(() => {    
-    if (isLargeScreen) navigate("/settings/theme");
-  });
+    if (isLargeScreen) navigate("/settings/theme");    
+  },[]);
   const { t, i18n } = useTranslation("global");
 
   return (

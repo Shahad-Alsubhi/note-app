@@ -40,16 +40,16 @@ const useNoteForm = () => {
           });
         },
         1000
-      ),
-    []
+      ),[]
   );
-
+  
   const handleChange = (
     e:
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
   ) => {
     debouncedInput(e);
+    
   };
 
   return {

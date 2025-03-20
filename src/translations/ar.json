@@ -8,7 +8,7 @@
   "create_note": "إنشاء ملاحظة جديدة",
   "new_note": {
     "title_placeholder": "أدخل عنوانًا…",
-    "tags_placeholder": "أضف فئات مفصولة بفواصل (مثال: عمل، تخطيط)",
+    "tags_placeholder": "(مثال: عمل، تخطيط)",
     "content_placeholder": "ابدأ بكتابة ملاحظتك هنا…"
   },
   "settings": "الأعدادات",

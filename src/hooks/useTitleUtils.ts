@@ -5,11 +5,12 @@ export const useTitleUtils = () => {
 
   const getTitle = (searchParam: URLSearchParams, pathname: string) => {
     const search = searchParam.get("search");
+    const searchEmpty=searchParam.has("search")
     const tag = searchParam.get("tag");
     const archived = searchParam.get("archived");
 
-    if (search === "null") return t("search");
     if (search) return `${t("search_result")} ${search}`;
+    if (searchEmpty) return t("search");
     if (tag) return `${t("Notes_Tagged")} ${tag}`;
     if (archived) return t("archived_notes");
 
@@ -21,7 +22,7 @@ export const useTitleUtils = () => {
   };
 
   const getEmptyStateText = (searchParam: URLSearchParams) => {
-    const search = searchParam.get("search");
+    const search = searchParam.has("search");
     const archived = searchParam.get("archived");
 
     if (search) return t("search_mismatch");

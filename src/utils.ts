@@ -8,6 +8,7 @@ export const handleFilterNotes = (
   const tag = searchParam.get("tag");
   const archived = searchParam.get("archived");
 
+  if (search === "") return [];
   if (search)
     return notes.filter(
       (note) =>

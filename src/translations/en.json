@@ -8,7 +8,7 @@
   "create_note": "Create New Note",
   "new_note": {
     "title_placeholder": "Enter a title…",
-    "tags_placeholder": "Add tags separated by commas (e.g. Work, Planning)",
+    "tags_placeholder": "(e.g. Work, Planning)",
     "content_placeholder": "Start typing your note here…"
   },
   "settings": "Settings",

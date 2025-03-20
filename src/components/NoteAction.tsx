@@ -3,6 +3,8 @@ import { ArchiveIcon, DeleteIcon, RestoreIcon } from "../icons";
 import { actions } from "../store";
 import BackBtn from "./BackBtn";
 import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "react-responsive";
+import { useNavigate } from "react-router";
 
 const NoteAction = ({
   archivedNote,
@@ -12,14 +14,18 @@ const NoteAction = ({
   id: string;
 }) => {
   const dispatch = useDispatch();
-    const { t } = useTranslation("global");
-  
+  const { t } = useTranslation();
+  const isLargeScreen = useMediaQuery({ minWidth: 1024 });
+  const navigate = useNavigate();
   return (
     <div className="flex justify-between lg:pt-4 items-center max-lg:border-b border-neutral-200 dark:border-neutral-800 max-lg:px-4 max-lg:pt-0 lg:flex-col max-lg:**:text-neutral-600 max-lg:dark:**:text-neutral-300">
       <BackBtn />
       <div className=" flex gap-4 lg:flex-col items-center *:text-sm">
         <button
-          onClick={() => dispatch(actions.DeleteNote({ id }))}
+          onClick={() => {
+            dispatch(actions.DeleteNote({ id }));
+            if (!isLargeScreen) navigate(-1);
+          }}
           className="py-2.5 pe-3 flex gap-2 items-center w-full lg:border rounded-lg border-neutral-300 lg:px-4 dark:border-neutral-600 font-medium"
         >
           <DeleteIcon />

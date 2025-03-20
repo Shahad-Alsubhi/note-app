@@ -42,7 +42,7 @@ const navItems = [
     id: "search",
     label: "Search",
     Icon: SearchIcon,
-    path: "/notes?search=null",
+    path: "/notes?search=",
   },
   {
     id: "archived",
