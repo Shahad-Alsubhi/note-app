@@ -2,6 +2,7 @@ import {
   Outlet,
   useLocation,
   useNavigate,
+  useParams,
   useSearchParams,
 } from "react-router";
 import { Logo } from "../icons";
@@ -15,6 +16,7 @@ const MobileLayout = () => {
   const navigate = useNavigate();
   const SearchPath = useSearchParams()[0].has("search");
   const NewPath = useLocation().pathname.includes("new");
+  const {id}=useParams()
   return (
     <>
       <ScrollToTop />
@@ -26,7 +28,7 @@ const MobileLayout = () => {
           {!NewPath && <Title />}
           {SearchPath && <SearchInput />}
           <Outlet />
-          {!NewPath && !SearchPath  && (
+          {!NewPath && !SearchPath  &&!id&& (
             <AddNoteBtn text="+" onClick={() => navigate("/notes/new")} />
           )}
         </div>
